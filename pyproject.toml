@@ -8,7 +8,7 @@ version = "0.1.0"
 authors = [
   { name = "Tobias Ahlers", email = "93325697+TobiasAhlers@users.noreply.github.com" },
 ]
-description = "A simple API for managing finances."
+description = "A simple API for managing personal finances."
 readme = "README.md"
 requires-python = ">=3.11"
 classifiers = [
