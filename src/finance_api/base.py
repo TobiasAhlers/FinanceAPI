@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from data_model_router import DataModelRouter
 from sqlmodel import SQLModel
@@ -18,3 +19,18 @@ class FinanceAPI(FastAPI):
         self.include_router(DataModelRouter(Transaction))
         self.include_router(DataModelRouter(Account))
         self.include_router(DataModelRouter(Category))
+
+        self.add_middleware(
+            CORSMiddleware,
+            allow_origins=["*"],
+            allow_credentials=True,
+            allow_methods=["*"],
+            allow_headers=["*"],
+        )
+
+    @classmethod
+    def create_tables(cls) -> None:
+        SQLModel.metadata.create_all(ENGINE, checkfirst=True)
+
+
+API = FinanceAPI()

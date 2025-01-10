@@ -15,10 +15,8 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "Operating System :: OS Independent",
 ]
-dependencies = [
-  "datamodel_router @ git+https://github.com/TobiasAhlers/DataModel-Router.git",
-]
+dependencies = ["datamodel_router", "uvicorn"]
 
 [project.urls]
-Homepage = "https://github.com/pypa/sampleproject"
-Issues = "https://github.com/pypa/sampleproject/issues"
+Homepage = "https://github.com/TobiasAhlers/FinanceAPI/"
+Issues = "https://github.com/TobiasAhlers/FinanceAPI/issues"
