@@ -7,7 +7,7 @@ class AccountRouter(DataModelRouter):
     def __init__(self) -> None:
         super().__init__(data_model=Account)
 
-        @self.get("/balance", response_model=float, tags=["Account"])
+        @self.get("/{account_id}/balance", response_model=float, tags=["Account"])
         def get_balance(account_id: int) -> float:
             """
             Retrieve the balance of the account.
@@ -16,4 +16,5 @@ class AccountRouter(DataModelRouter):
             """
             transactions = Transaction.get_all(account_id=account_id)
             balance = sum(transaction.amount for transaction in transactions)
-            return balance
+
+            return balance if balance is not None else 0.0
