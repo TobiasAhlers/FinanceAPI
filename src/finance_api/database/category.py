@@ -18,5 +18,5 @@ class Category(DataModel, table=True):
     description: Optional[str] = Field(description="The description of the category")
     parent_id: Optional[int] = Field(
         description="The parent category id",
-        foreign_key="parent_category.parent_category_id",
+        foreign_key="parentcategory.parent_category_id",
     )
