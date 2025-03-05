@@ -5,7 +5,6 @@ from data_model_router import DataModelRouter
 from sqlmodel import SQLModel
 
 from .database import *
-from .router import *
 
 
 class FinanceAPI(FastAPI):
@@ -18,7 +17,8 @@ class FinanceAPI(FastAPI):
         SQLModel.metadata.create_all(ENGINE, checkfirst=True)
 
         self.include_router(DataModelRouter(Transaction))
-        self.include_router(AccountRouter())
+        self.include_router(DataModelRouter(Account))
+        self.include_router(DataModelRouter(ParentCategory))
         self.include_router(DataModelRouter(Category))
 
         self.add_middleware(
